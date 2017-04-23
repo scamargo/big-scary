@@ -3,6 +3,10 @@ body{
   color: #faebd7;
 }
 
+.container {
+  padding: 30px 0;
+}
+
 #wrapper{
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://www.shunvmall.com/data/out/158/47839863-minimalist-wallpaper.png') no-repeat center center fixed;
     background-size: cover;
@@ -22,8 +26,13 @@ h1{
 #survey{
   text-align: center;
   padding:10px;
-  background-color: rgba(255,255,255,0.4);
+
 }
+
+.light-bg {
+  background-color: rgba(255,255,255,0.4);  
+}
+
 .selfie{
   border-radius:50%;
   width: 25%;
@@ -32,6 +41,14 @@ h1{
   padding-top:20px;
 }
 #home img{
+    max-width: 100%;
+    height: auto;
+}
+
+#videos{
+  padding-top:20px;
+}
+#videos img{
     max-width: 100%;
     height: auto;
 }

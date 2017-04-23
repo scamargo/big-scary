@@ -1,14 +1,21 @@
 
 var slideIndex = 1;
-showDivs(slideIndex);
+var videoSlideIndex = 1;
+showDivs(slideIndex, "mySlides");
+showDivs(videoSlideIndex, "videoSlides")
 
 function plusDivs(n) {
-    showDivs(slideIndex += n);
+    showDivs(slideIndex += n,"mySlides");
 }
 
-function showDivs(n) {
+function plusDivsVid(n) {
+    showDivs(slideIndex += n,"videoSlides");
+}
+
+
+function showDivs(n, slideClass) {
     var i;
-    var x = document.getElementsByClassName("mySlides");
+    var x = document.getElementsByClassName(slideClass);
     if (n > x.length) {slideIndex = 1} 
     if (n < 1) {slideIndex = x.length} ;
     for (i = 0; i < x.length; i++) {
@@ -26,12 +33,11 @@ $.getJSON(youtubeUrl, function(json) {
   for(var i=1;i<3;i++) { 
     var id = json["items"][i]["id"]["videoId"];
     videoLinks.push(id);
-    console.log(id);
   }     
 
 
-console.log("vid1");
+console.log("videolink1: "+ videoLinks[0]);
 $("#vid1").attr("src", "https://www.youtube.com/embed/" +videoLinks[0]);
- $("#vid2").attr("src", "https://www.youtube.com/embed/" +videoLinks[1]);
+$("#vid2").attr("src", "https://www.youtube.com/embed/" +videoLinks[1]);
   
-  });
+});
