@@ -48,17 +48,20 @@ h1{
   background-color: rgba(255,255,255,0.4);
 }
 
-.selfie{
-  border-radius:50%;
-  width: 25%;
+.graph{
+
 }
 #home{
-  display: none;
+  display: ;
   padding-top:20px;
+  text-align: center;
 }
 #home img{
     max-width: 100%;
     height: auto;
+}
+#home h1{
+    padding-top:150px;
 }
 
 #videos{
