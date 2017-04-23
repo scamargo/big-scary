@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/style.css">
     <style>
     #wrapper {
         background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('http://www.shunvmall.com/data/out/158/47839863-minimalist-wallpaper.png') no-repeat center center fixed;
@@ -16,6 +18,13 @@
     }
     .rad-head  {
       margin-left: 40px;
+    }
+    #bs-style  {
+      width: 100%;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     </style>
     <title>Survey</title>
@@ -45,11 +54,10 @@
             </div>
         </div>
     </nav>
-    <div class="ui grid" style="padding-top: 30px">
-        <div class="ui form ten wide column centered">
+    <div class="ui grid" style="padding-top: 30px" id="body">
+        <div class="ui form ten wide column centered" id="appendHere">
             <div class="grouped fields">
-                <div class="form-group">
-                    <p>Were you familiar with UBI before you found us?</p>
+                    <h2>Were you familiar with UBI before you found us?</h2>
                     <div class="row radio">
                       <div class="rad-head">
                         <input type="radio" name="familiar" id="famYes">
@@ -62,16 +70,13 @@
                         <label>No</label>
                       </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <p>Do you wish to advocate for UBI?</p>
+                    <h2>Do you wish to advocate for UBI?</h2>
                     <div class="row radio">
                       <div class="rad-head">
                         <input type="radio" name="advocate" id="advYes">
                         <label>Yes</label>
                       </div>
                     </div>
-                  </div>
                   <div class="field">
                     <div class="row radio">
                       <div class="rad-head">
@@ -93,7 +98,6 @@
                     <input class="" type="text" id="email">
                 </div>
             </div>
-            <input type="submit" id="submit" value="Submit" class="ui button disabled">
         </div>
     </div>
 </body>
