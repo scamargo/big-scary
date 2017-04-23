@@ -1,0 +1,93 @@
+body {
+  font-family: 'Oswald', sans-serif;
+  color: #faebd7;
+
+}
+
+.container {
+  padding: 30px 0;
+}
+
+#wrapper{
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://www.shunvmall.com/data/out/158/47839863-minimalist-wallpaper.png') no-repeat center center fixed;
+    background-size: cover;
+  padding-top: 50px;
+}
+
+h1{
+  text-transform: uppercase;
+  font-family: 'Oswald';
+}
+#what{
+  text-align: center;
+  width: 80%;
+  margin-top: 50px;
+  padding:20px;
+}
+#survey{
+  text-align: center;
+  padding:10px;
+}
+
+#vid-description{
+  width: 70%;
+}
+
+.light-bg {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.selfie{
+  border-radius:50%;
+  width: 25%;
+}
+#home{
+  padding-top:20px;
+}
+#home img{
+    max-width: 100%;
+    height: auto;
+}
+
+#videos{
+  padding-top:20px;
+}
+#videos img{
+    max-width: 100%;
+    height: auto;
+}
+
+.w3-button{
+  border: none;
+  display: inline-block;
+  outline: 0;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: #1b96fe;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+.w3-display-left {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(-0%, -50%)
+}
+.w3-display-right {
+  position: absolute;
+  top: 50%;
+  right: 0%;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%)
+}
