@@ -26,8 +26,16 @@
       justify-content: center;
       align-items: center;
     }
+    ul.outside-links {
+      font-size: 150% !important;
+      list-style: none;
+      line-height: 2 !important;
+    }
+    a.outside {
+      color: rgb(120, 175, 255) !important;
+    }
     </style>
-    <title>Survey</title>
+    <title>Further Reading</title>
 </head>
 
 <body id="wrapper">
@@ -54,52 +62,17 @@
     </nav>
     <div class="ui grid" style="padding-top: 30px" id="body">
         <div class="ui form ten wide column centered" id="appendHere">
-            <div class="grouped fields">
-                    <h2>Were you familiar with UBI before you found us?</h2>
-                    <div class="row radio">
-                      <div class="rad-head">
-                        <input type="radio" name="familiar" id="famYes">
-                        <label>Yes</label>
-                      </div>
-                    </div>
-                    <div class="row radio">
-                      <div class="rad-head">
-                        <input type="radio" name="familiar" id="famNo" checked>
-                        <label>No</label>
-                      </div>
-                    </div>
-                    <h2>Do you wish to advocate for UBI?</h2>
-                    <div class="row radio">
-                      <div class="rad-head">
-                        <input type="radio" name="advocate" id="advYes">
-                        <label>Yes</label>
-                      </div>
-                    </div>
-                  <div class="field">
-                    <div class="row radio">
-                      <div class="rad-head">
-                        <input type="radio" name="advocate" id="advNo" checked>
-                        <label>No</label>
-                      </div>
-                    </div>
-                </div>
-                <div class="disabled field ui input" id="firstInfo">
-                    <label>First Name: </label>
-                    <input type="text" id="firstName">
-                </div>
-                <div class="disabled field ui input" id="lastInfo">
-                    <label>Last Name: </label>
-                    <input type="text" id="lastName">
-                </div>
-                <div class="field ui input" id="emailInfo">
-                    <label>E-Mail Address: </label>
-                    <input class="" type="text" id="email">
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/survey.js"></script>
+          <h1>Further Reading</h1>
+          <h2>Learn more about UBI and find out how you can get involved with #thebigscaryidea.</h2>
+          <br>
+          <p>
+          <ul class="outside-links">
+            <li> <a href="http://basicincome.org/basic-income/" class="outside" target="blank">What is Basic Income?</a> - A brief overview from the Basic Income Earth Network </li>
+            <li><a href="https://futurism.com/images/universal-basic-income-answer-automation/" class="outside" target="blank">Futurism Basic Income</a> - An infographic with statistics and case studies</li>
+            <li><a href="http://www.businessinsider.com/elon-musk-universal-basic-income-2017-2" class="outside" target="blank">Elon Musk on UBI</a> - An interview with Business Insider</li>
+            <li><a href="https://blog.ycombinator.com/moving-forward-on-basic-income/" class="outside" target="blank">Moving Forward on UBI</a> - From Y-Combinator, regarding their UBI pilot in Oakland, CA.</li>
+            <li></li>
+          </ul>
+        </p>
 
 </html>
