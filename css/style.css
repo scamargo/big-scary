@@ -26,7 +26,10 @@ h1{
 #survey{
   text-align: center;
   padding:10px;
+}
 
+#vid-description{
+  width: 70%;
 }
 
 .light-bg {

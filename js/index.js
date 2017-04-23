@@ -1,8 +1,7 @@
 
 var slideIndex = 1;
-var videoSlideIndex = 1;
 showDivs(slideIndex, "mySlides");
-showDivs(videoSlideIndex, "videoSlides")
+showDivs(slideIndex, "videoSlides")
 
 function plusDivs(n) {
     showDivs(slideIndex += n,"mySlides");
@@ -12,6 +11,19 @@ function plusDivsVid(n) {
     showDivs(slideIndex += n,"videoSlides");
 }
 
+function showDivsPlusOne() {
+    console.log('plus one');
+
+    var x = document.getElementsByClassName("mySlides");
+    if (slideIndex > x.length) {slideIndex = 1} 
+    if (slideIndex < 1) {slideIndex = x.length} ;
+    for (var i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    x[slideIndex-1].style.display = "block";   
+} 
+
+setInterval(showDivsPlusOne, 4000);
 
 function showDivs(n, slideClass) {
     var i;
@@ -29,15 +41,14 @@ var youtubeUrl = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyC7u-8To
 var videoLinks = [];
 
 $.getJSON(youtubeUrl, function(json) {
-  console.log(JSON.stringify(json));
-  for(var i=1;i<3;i++) { 
+  for(var i=1;i<4;i++) { 
     var id = json["items"][i]["id"]["videoId"];
     videoLinks.push(id);
   }     
 
 
-console.log("videolink1: "+ videoLinks[0]);
 $("#vid1").attr("src", "https://www.youtube.com/embed/" +videoLinks[0]);
 $("#vid2").attr("src", "https://www.youtube.com/embed/" +videoLinks[1]);
+$("#vid3").attr("src", "https://www.youtube.com/embed/" +videoLinks[2]);
   
 });
