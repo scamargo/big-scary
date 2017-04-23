@@ -42,7 +42,7 @@ $(function() {
 
                 } else if (data.data.result == "Bad" || data.data.result === undefined) {
                     emailInfo.addClass("error");
-                    alert("Not a valid Email!");
+                    $("#errorEmail").html("<br><div class='ui centered tertiary inverted red segment'>Not a valid Email!</div><br>");
                     valid = false;
                 }
             }
@@ -54,14 +54,14 @@ $(function() {
             success: function(data) {
                 if (data.data == "valid") {} else if (data.data == "invalid") {
                     emailInfo.addClass("error");
-                    alert("Email is already in use, sorry!");
+                    $("#errorEmail").html("<br><div class='ui tertiary inverted red centered segment'>Email is already in use, sorry!</div><br>");
                     valid = false;
                 }
             }
         });
-        console.log("here")
         if(emailInfo.hasClass("error") && valid === true) {
           emailInfo.removeClass("error");
+          $("#errorEmail").html("")
         }
     });
 
@@ -111,7 +111,7 @@ $(function() {
                 $("#appendHere").append(html);
             }
         }
-        $("#appendHere").append('<input type="submit" id="submit" value="Submit" class="ui button">');
+        $("#appendHere").append('<div id="error"></div><input type="submit" id="submit" value="Submit" class="ui button">');
         submit = $("#submit");
     };
     render(questObj);
@@ -165,9 +165,9 @@ $(function() {
                 }
             }
             if(gender.id == "chopper")  {
-              alert("You are not an Apache Helicopter, yes I just assumed your gender.")
+              $("#error").html("<div class='ui tertiary inverted red segment'>You are not an Apache Helicopter, yes I just assumed your gender.</div><br>")
             } else {
-            alert("Check to make sure you filled out the whole survey!");
+            $("#error").html("<div class='ui tertiary inverted red segment'>Check to make sure you filled out the whole survey!</div><br>");
             }
         } else {
             var num;
