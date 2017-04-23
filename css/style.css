@@ -20,7 +20,7 @@ h1{
 
 .vertical-align {
   display: flex;
-  align-items: center;
+  align-content: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -52,16 +52,28 @@ h1{
 
 }
 #home{
-  display: ;
-  padding-top:20px;
-  text-align: center;
+  display: flex;
+  min-height: 600px;
 }
 #home img{
     max-width: 100%;
     height: auto;
+    margin-top: -5%;
 }
+
 #home h1{
-    padding-top:150px;
+  padding-top: 15%;
+  min-height: 500px;
+  text-align: center;
+}
+
+.uppercase{
+  text-transform: uppercase !important;
+  font-size:40px;
+}
+#home p{
+  font-size: 15px;
+  text-align: center;
 }
 
 #videos{
