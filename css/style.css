@@ -17,11 +17,23 @@ h1{
   text-transform: uppercase;
   font-family: 'Oswald';
 }
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#videos{
+  height:93vh;
+}
+
 #what{
   text-align: center;
   width: 80%;
-  margin-top: 50px;
-  padding:20px;
+  padding: 50px;
+  height: 90vh;
 }
 #survey{
   text-align: center;
@@ -41,6 +53,7 @@ h1{
   width: 25%;
 }
 #home{
+  display: none;
   padding-top:20px;
 }
 #home img{
