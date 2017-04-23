@@ -1,10 +1,10 @@
 $(function() {
     var advYes = $("#advYes");
     var advNo = $("#advNo");
-    var emailInfo = $("#emailInfo")
+    var emailInfo = $("#emailInfo");
     var email = $("#email");
-    var submit
-    var disabled = $(".disabled")
+    var submit;
+    var disabled = $(".disabled");
     var firstInfo = $("#firstInfo");
     var lastInfo = $("#lastInfo");
     advYes.on("click", function() {
@@ -21,8 +21,8 @@ $(function() {
         }
         if (!firstInfo.hasClass("disabled")) {
             if (!lastInfo.hasClass("disabled")) {
-                firstInfo.addClass("disabled")
-                lastInfo.addClass("disabled")
+                firstInfo.addClass("disabled");
+                lastInfo.addClass("disabled");
             }
         }
     });
@@ -30,6 +30,7 @@ $(function() {
 
     email.on("focusout", function(e) {
         e.preventDefault();
+        var valid = true
         $.ajax({
             type: "POST",
             url: "http://45.55.198.11:3333/api/validate_email",
@@ -38,16 +39,30 @@ $(function() {
             }),
             success: function(data) {
                 if (data.data.result == "Ok") {
-                    submit.removeClass("disabled");
-                } else if (data.data.result == "Bad" || data.data.result == undefined) {
+
+                } else if (data.data.result == "Bad" || data.data.result === undefined) {
                     emailInfo.addClass("error");
-                    console.log("error");
+                    alert("Not a valid Email!");
+                    valid = false;
                 }
-            },
-            error: function(e, x, err) {
-                console.log(err);
             }
-        })
+
+        });
+        $.ajax({
+            type: "GET",
+            url: "http://45.55.198.11:3333/api/user_exists?email=" + email[0].value,
+            success: function(data) {
+                if (data.data == "valid") {} else if (data.data == "invalid") {
+                    emailInfo.addClass("error");
+                    alert("Email is already in use, sorry!");
+                    valid = false;
+                }
+            }
+        });
+        console.log("here")
+        if(emailInfo.hasClass("error") && valid === true) {
+          emailInfo.removeClass("error");
+        }
     });
 
     var questObj = [{
@@ -85,12 +100,12 @@ $(function() {
             ids: ["male", "female", "other", "noAnswer", "chopper"],
             htmlTemplate: '<div class="field"><div class="row radio"><div class="rad-head"><input type="radio" content="VALUE" name="NAME" id="ID"><label>LABEL</label></div></div></div>'
         }
-    ]
+    ];
 
     var render = function(questObj) {
         for (var i = 0; i < questObj.length; i++) {
             var choices = questObj[i].choices;
-            $("#appendHere").append(questObj[i].question)
+            $("#appendHere").append(questObj[i].question);
             for (var j = 0; j < choices.length; j++) {
                 var html = questObj[i].htmlTemplate.replace("NAME", questObj[i].name).replace("LABEL", questObj[i].choices[j]).replace("ID", questObj[i].ids[j]).replace("VALUE", questObj[i].choices[j]);
                 $("#appendHere").append(html);
@@ -98,7 +113,7 @@ $(function() {
         }
         $("#appendHere").append('<input type="submit" id="submit" value="Submit" class="ui button">');
         submit = $("#submit");
-    }
+    };
     render(questObj);
     submit.on("click", function() {
         var firstName = $("#firstName")[0];
@@ -109,60 +124,54 @@ $(function() {
         var cost = $("input[name='cost']:checked").attr("content");
         var ethnicity = $("input[name='ethnicity']:checked")[0];
         var gender = $("input[name='gender']:checked")[0];
-        /*console.log(amount.id)
-        console.log(intent.id)
-        console.log(cost.id)
-        console.log(ethnicity.id)
-        console.log(gender.id)*/
-        console.log(cost);
-        console.log(amount);
         if (familiar == "famYes") {
             familiar = "fam_yes";
         } else {
             familiar = "fam_no";
         }
-        var advocate = $("input[name='advocate']:checked")[0].id
+        var advocate = $("input[name='advocate']:checked")[0].id;
         if (advocate == "advYes") {
             advocate = "adv_yes";
         } else {
             advocate = "adv_no";
         }
         if (ethnicity == "hispanic-latino") {
-          ethnicity = "hispanic_latino";
-        }
-        else if (ethnicity == "african-american") {
-          ethnicity = "african_american"
-        }
-        else if (ethnicity == "native-american") {
-          ethnicity = "native_american"
-        }
-        else if (ethnicity == "pacific-islander") {
-          ethnicity = "pacific_islander"
+            ethnicity = "hispanic_latino";
+        } else if (ethnicity == "african-american") {
+            ethnicity = "african_american";
+        } else if (ethnicity == "native-american") {
+            ethnicity = "native_american";
+        } else if (ethnicity == "pacific-islander") {
+            ethnicity = "pacific_islander";
         }
         if (gender == "noAnswer") {
-          gender == "no_answer"
+            gender = "no_answer";
         }
-        if ((advocate === "adv_yes" && (firstName.value == "" || lastName.value == "")) || familiar == undefined || amount == undefined || intent == undefined || cost == undefined || ethnicity == undefined || gender == undefined || gender == "chopper") {
-            if (advocate == "adv_yes" && firstName.value == "") {
-                if (lastName.value == "") {
-                    firstInfo.addClass("error")
-                    lastInfo.addClass("error")
+        if ((advocate === "adv_yes" && (firstName.value === "" || lastName.value === "")) || familiar === undefined || amount === undefined || intent === undefined || cost === undefined || ethnicity === undefined || gender === undefined || gender == "chopper") {
+            if (advocate == "adv_yes" && firstName.value === "") {
+                if (lastName.value === "") {
+                    firstInfo.addClass("error");
+                    lastInfo.addClass("error");
                 } else {
-                    firstInfo.addClass("error")
+                    firstInfo.addClass("error");
                     if (lastInfo.hasClass("error")) {
-                        lastInfo.removeClass("error")
+                        lastInfo.removeClass("error");
                     }
                 }
-            } else if (advocate =="adv_yes"){
-                lastInfo.addClass("error")
+            } else if (advocate == "adv_yes") {
+                lastInfo.addClass("error");
                 if (firstInfo.hasClass("error")) {
-                    firstInfo.removeClass("error")
+                    firstInfo.removeClass("error");
                 }
             }
+            if(gender.id == "chopper")  {
+              alert("You are not an Apache Helicopter, yes I just assumed your gender.")
+            } else {
             alert("Check to make sure you filled out the whole survey!");
+            }
         } else {
             var num;
-          $.ajax({
+            $.ajax({
                 type: "POST",
                 url: "http://45.55.198.11:3333/api/save_data",
                 data: JSON.stringify({
@@ -170,7 +179,7 @@ $(function() {
                     last_name: lastName.value,
                     email: email[0].value,
                     familiar_ubi: familiar,
-                    advocate_ubi  : advocate,
+                    advocate_ubi: advocate,
                     amount: amount,
                     intent: intent.id,
                     cost: cost,
@@ -178,16 +187,16 @@ $(function() {
                     gender: gender.id
                 }),
                 success: function(data) {
-                  $.ajax({
-                      type: "GET",
-                      url: "http://45.55.198.11:3333/api/get_advocates",
-                      success: function(data) {
-                          num = data.data.advocate_count;
-                          $("#body").html("<div id='bs-style'>Thank you for your support! You are advocate number " + num + "</div>");
-                      }
-                  });
+                    $.ajax({
+                        type: "GET",
+                        url: "http://45.55.198.11:3333/api/get_advocates",
+                        success: function(data) {
+                            num = data.data.advocate_count;
+                            $("#body").html("<div id='bs-style'>Thank you for your support! You are advocate number " + num + "</div>");
+                        }
+                    });
                 }
-            })
+            });
         }
-    })
+    });
 });
