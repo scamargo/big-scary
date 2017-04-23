@@ -30,7 +30,7 @@ h1{
 }
 
 .light-bg {
-  background-color: rgba(255,255,255,0.4);  
+  background-color: rgba(255,255,255,0.4);
 }
 
 .selfie{
@@ -71,7 +71,7 @@ h1{
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none 
+  user-select: none
 }
 .w3-display-left {
   position: absolute;
