@@ -1,3 +1,5 @@
+var youtubeUrl = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCPcWeTfcGe1PLIUlrlpXJ2gkhrcxg80i0&part=snippet&type=video&q=thebigscaryidea&order=date";
+var videoLinks = [];  
 
 var slideIndex = 1;
 showDivs(slideIndex, "mySlides");
@@ -36,9 +38,7 @@ function showDivs(n, slideClass) {
     x[slideIndex-1].style.display = "block"; 
 }
 
-var youtubeUrl = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyC7u-8ToPtdxpzIuQMBOYRywIZW3Dj-JjM&part=snippet&type=video&q=thebigscaryidea&order=date";
 
-var videoLinks = [];
 
 $.getJSON(youtubeUrl, function(json) {
   for(var i=1;i<4;i++) { 
