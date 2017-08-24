@@ -5,11 +5,12 @@ body{
 
 .container {
   padding: 30px 0;
+  min-height: 100vh;
 }
 
 #wrapper{
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('http://www.shunvmall.com/data/out/158/47839863-minimalist-wallpaper.png') no-repeat center center fixed;
-    background-size: cover;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/money_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
   padding-top: 50px;
 }
 
